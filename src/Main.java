@@ -1,17 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {1,2,3,4,5,6,7 };
-        printArray(numbers);
+        int[] numbers = {1,2,3,4,5,6,7};
+        getSubArrayBetween(numbers,1,11);
     }
 
-    public static void printArray(int[] numbers) {
+    public static int[] getSubArrayBetween(int[] numbers, int start, int end) {
         System.out.print("[");
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i]);
-            if (i < numbers.length - 1) {
-                System.out.print(", ");
+        boolean firstNumberPrinted = false;
+        for (int number : numbers) {
+            if (number >= start && number <= end) {
+                if (firstNumberPrinted) {
+                    System.out.print(", ");
+                }
+                System.out.print(number);
+                firstNumberPrinted = true;
             }
         }
         System.out.print("]");
+        return numbers;
     }
 }
